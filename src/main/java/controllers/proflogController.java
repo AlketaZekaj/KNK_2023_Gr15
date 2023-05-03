@@ -1,9 +1,5 @@
 package controllers;
 
-
-import javafx.event.EventHandler;
-import javafx.scene.input.KeyEvent;
-import javafx.scene.input.KeyCode;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,6 +11,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import model.Professor;
+import model.SessionManager;
 import repository.DatabaseConnection;
 
 import java.sql.Connection;
@@ -23,17 +21,13 @@ import java.sql.Statement;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
-
-public class LoginController {
-
+public class proflogController {
     @FXML
-    private Button Loginbtn;
+    private Button cancelButton;
     @FXML
-    private Label loginMessage;
+    private Label loginMessageLabel;
     @FXML
-    private Button cancelBtn;
-    @FXML
-    private TextField usernameField;
+    private TextField useridField;
     @FXML
     private PasswordField passwordField;
     @FXML
@@ -41,7 +35,7 @@ public class LoginController {
     @FXML
     private Button engbtn;
 
-    private static Connection connDB = null;
+    Connection connDB = null;
 
     @FXML
     public void  onalbbtnclick(ActionEvent e){
@@ -49,7 +43,7 @@ public class LoginController {
             Locale currentLocale=Locale.getDefault();
             Locale locale = new Locale("Al_AL");
             ResourceBundle bundle=ResourceBundle.getBundle("resources.labelText",locale);
-            Parent parent = FXMLLoader.load(getClass().getResource("/application/login.fxml"),bundle);
+            Parent parent = FXMLLoader.load(getClass().getResource("/application/proflog.fxml"),bundle);
             Stage primaryStage = (Stage) ((Node) e.getSource()).getScene().getWindow();
             primaryStage.setTitle("Menaxhimi I Konsultimeve");
             primaryStage.setScene(new Scene(parent));
@@ -65,7 +59,7 @@ public class LoginController {
             Locale currentLocale=Locale.getDefault();
             Locale locale = new Locale("en_US");
             ResourceBundle bundle=ResourceBundle.getBundle("resources.labelText",locale);
-            Parent parent = FXMLLoader.load(getClass().getResource("/application/login.fxml"),bundle);
+            Parent parent = FXMLLoader.load(getClass().getResource("/application/proflog.fxml"),bundle);
             Stage primaryStage = (Stage) ((Node) e.getSource()).getScene().getWindow();
             primaryStage.setTitle("Menaxhimi I Konsultimeve");
             primaryStage.setScene(new Scene(parent));
@@ -75,26 +69,25 @@ public class LoginController {
         }
     }
 
+    public void loginButtonOnAction(ActionEvent e) throws Exception{
 
-
-
-    public void loginButton(javafx.event.ActionEvent e){
-        if(!usernameField.getText().isBlank() && !passwordField.getText().isBlank()){
+        if(useridField.getText().isBlank() == false && passwordField.getText().isBlank() == false){
             DatabaseConnection connect = new DatabaseConnection();
             connDB = connect.getConn();
 
-            String verifyLogin = "select count(1) from users where username ='" + usernameField.getText() + "' and password ='" + passwordField.getText() + "'";
+            String verifyLogin = "select count(1) from profesoret where id ='" + useridField.getText() + "' and password ='" + passwordField.getText() + "'";
             try{
                 Statement statement = connDB.createStatement();
                 ResultSet queryResult = statement.executeQuery(verifyLogin);
 
-                while(queryResult.next()){
+                while(queryResult.next()) {
                     if (queryResult.getInt(1) == 1) {
+                        SessionManager.professor = getProfessor(useridField.getText());
                         try {
                             Locale currentLocale=Locale.getDefault();
                             Locale locale = new Locale("en_US");
                             ResourceBundle bundle=ResourceBundle.getBundle("resources.labelText",locale);
-                            Parent parent = FXMLLoader.load(getClass().getResource("/application/student.fxml"),bundle);
+                            Parent parent = FXMLLoader.load(getClass().getResource("/application/professor.fxml"),bundle);
                             Stage primaryStage = (Stage) ((Node) e.getSource()).getScene().getWindow();
                             primaryStage.setTitle("Menaxhimi I Konsultimeve");
                             primaryStage.setScene(new Scene(parent));
@@ -102,22 +95,41 @@ public class LoginController {
                         }catch(Exception e1) {
                             e1.printStackTrace();
                         }
-                    }else{
-                        loginMessage.setText("Invalid login!");
+                    } else{
+                        loginMessageLabel.setText("Invalid login!");
                     }
                 }
             }catch(Exception ex){
                 ex.printStackTrace();
             }
         }else{
-            loginMessage.setText("Please enter username and password");
+            loginMessageLabel.setText("Please enter username and password");
         }
     }
 
-    public void  cancelButton(ActionEvent e){
-        Stage stage = (Stage) cancelBtn.getScene().getWindow();
+    public void  cancelButtonOnAction(ActionEvent e){
+        Stage stage = (Stage) cancelButton.getScene().getWindow();
         stage.close();
     }
 
+    private Professor getProfessor(String id) throws Exception{
+        DatabaseConnection connect = new DatabaseConnection();
+        connDB = connect.getConn();
 
+        String sql = "SELECT * from Profesoret where id = '" + id + "';";
+        Statement statement = connDB.createStatement();
+
+        ResultSet resultSet = statement.executeQuery(sql);
+
+        resultSet.next();
+        Professor p = new Professor(
+                resultSet.getString("id"),
+                resultSet.getString("name"),
+                resultSet.getString("username"),
+                resultSet.getString("email"),
+                resultSet.getString("phone"),
+                resultSet.getString("website")
+        );
+        return p;
+    }
 }
