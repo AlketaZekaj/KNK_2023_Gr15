@@ -9,9 +9,9 @@ public class DatabaseConnection {
     public Connection dbLink;
 
     public Connection getConn(){
-        String dbName = "konsultimet_test";
+        String dbName = "KNKProjekti";
         String dbuser = "root";
-        String dbpass = "tiktak123";
+        String dbpass = "";
 
         String url = "jdbc:mysql://localhost/" + dbName;
 
