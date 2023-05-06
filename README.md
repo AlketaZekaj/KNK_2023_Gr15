@@ -11,4 +11,5 @@
 #### Alketa Zekaj
 #### Aladin Bajra
 #### Ardit Haklaj 
+#### Blerona Jashanica
 #### Endi Rashica 
