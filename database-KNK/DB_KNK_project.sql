@@ -11,7 +11,7 @@ drop table if exists Drejtimi;
 drop table if exists VitiAkademik;
 drop table if exists Oraret;
 
-use SMO;
+use MOK;
 
 
 create table VitiAkademik(
