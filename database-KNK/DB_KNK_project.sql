@@ -12,6 +12,7 @@ drop table if exists VitiAkademik;
 drop table if exists Oraret;
 
 use MOK;
+    //comment
 
 
 create table VitiAkademik(
