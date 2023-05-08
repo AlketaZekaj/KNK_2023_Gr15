@@ -12,7 +12,7 @@ drop table if exists VitiAkademik;
 drop table if exists Oraret;
 
 use MOK;
-
+//TRYING FIRST COMMIT
 
 create table VitiAkademik(
 Id integer not null auto_increment,
