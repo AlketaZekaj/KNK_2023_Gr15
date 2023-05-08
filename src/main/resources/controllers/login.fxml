@@ -59,7 +59,7 @@
                 <Image url="@../../../../OneDrive/Desktop/download-icon-Education-1320043518726252401_512.png" />
             </image>
 
-            //trying first commit
+            //trying first committttt
         </ImageView>
         <Button fx:id="albbtn" layoutX="259.0" layoutY="426.0" mnemonicParsing="false" onAction="#onalbbtnclick" text="ALB" />
         <Button fx:id="engbtn" layoutX="306.0" layoutY="426.0" mnemonicParsing="false" onAction="#onengbtnclick" text="ENG" />
