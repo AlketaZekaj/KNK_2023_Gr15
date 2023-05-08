@@ -1,5 +1,5 @@
 drop database if exists MOK;
-create database MOO;
+create database MOK;
 use MOK;
 
 drop table if exists User;
