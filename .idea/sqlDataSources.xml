@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DdlMappings">
+    <mapping uuid="6414507a-eefe-44ac-bdbc-46d12ec27d00" name="konsultimet_test@localhost (DDL) Mapping">
+      <data-sources db="7412816a-ef4b-4e3e-954b-b3211f108f9d" ddl="e291ea0c-87d5-4b62-a7cc-75efc3cc0052" />
+      <scope>
+        <node negative="1">
+          <node kind="database" negative="1" />
+          <node kind="schema" qname="konsultimet_test" />
+        </node>
+      </scope>
+    </mapping>
+  </component>
+</project>
