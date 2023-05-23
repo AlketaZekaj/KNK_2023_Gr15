@@ -8,8 +8,8 @@
 
 ## Authors 
 
-#### Alketa Zekaj
 #### Aladin Bajra
+#### Alketa Zekaj
 #### Ardit Haklaj 
 #### Blerona Jashanica
 #### Endi Rashica 
