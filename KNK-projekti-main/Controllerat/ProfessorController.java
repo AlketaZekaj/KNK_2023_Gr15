@@ -310,7 +310,7 @@ public class ProfessorController implements Initializable {
 		Locale locale = new Locale("Al_AL");
 		ResourceBundle bundle=ResourceBundle.getBundle("resources.labelText",locale);
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/application/EditAppoitment.fxml"));
+        loader.setLocation(getClass().getResource("/application/EditAppoitnment.fxml"));
 
         Parent parent = loader.load();
         EditAppointmentController controller = loader.getController();
