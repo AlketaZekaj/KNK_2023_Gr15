@@ -17,7 +17,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class provaController implements Initializable {
+public class HyrjaController implements Initializable {
 	@FXML
 	private MenuItem closeButton;
 	@FXML
@@ -39,7 +39,7 @@ public class provaController implements Initializable {
     		Locale currentLocale=Locale.getDefault();
    		    Locale locale = new Locale("Al_AL");
    		    ResourceBundle bundle=ResourceBundle.getBundle("resources.labelText",locale);
-            Parent parent = FXMLLoader.load(getClass().getResource("/application/prova.fxml"),bundle);
+            Parent parent = FXMLLoader.load(getClass().getResource("/Application/Hyrja.fxml"),bundle);
             Stage primaryStage = (Stage) ((Node) e.getSource()).getScene().getWindow();
             primaryStage.setTitle("Menaxhimi I Konsultimeve");
             primaryStage.setScene(new Scene(parent));
@@ -55,7 +55,7 @@ public class provaController implements Initializable {
     		Locale currentLocale=Locale.getDefault();
    		    Locale locale = new Locale("en_US");
    		    ResourceBundle bundle=ResourceBundle.getBundle("resources.labelText",locale);
-            Parent parent = FXMLLoader.load(getClass().getResource("/application/prova.fxml"),bundle);
+            Parent parent = FXMLLoader.load(getClass().getResource("/Application/Hyrja.fxml"),bundle);
             Stage primaryStage = (Stage) ((Node) e.getSource()).getScene().getWindow();
             primaryStage.setTitle("Menaxhimi I Konsultimeve");
             primaryStage.setScene(new Scene(parent));
@@ -72,7 +72,7 @@ public class provaController implements Initializable {
         Locale currentLocale=Locale.getDefault();
    		Locale locale = new Locale("en_US");
    		ResourceBundle bundle=ResourceBundle.getBundle("resources.labelText",locale);
-        Parent parent = FXMLLoader.load(getClass().getResource("/application/login.fxml"),bundle);
+        Parent parent = FXMLLoader.load(getClass().getResource("/Application/Login.fxml"),bundle);
         Stage primaryStage = (Stage) ((Node) e.getSource()).getScene().getWindow();
         primaryStage.setTitle("Menaxhimi I Konsultimeve");
         primaryStage.setScene(new Scene(parent));
@@ -91,7 +91,7 @@ public class provaController implements Initializable {
         Locale currentLocale=Locale.getDefault();
     	Locale locale = new Locale("en_US");
     	ResourceBundle bundle=ResourceBundle.getBundle("resources.labelText",locale);
-        Parent parent = FXMLLoader.load(getClass().getResource("/application/proflog.fxml"),bundle);
+        Parent parent = FXMLLoader.load(getClass().getResource("/Application/ProfessorLogin.fxml"),bundle);
         Scene scene = new Scene(parent);
         Stage primaryStage = (Stage) ((Node) e.getSource()).getScene().getWindow();
         primaryStage.setScene(scene);
@@ -111,7 +111,7 @@ public class provaController implements Initializable {
     void onHelpClick(ActionEvent e) throws Exception{
     try {
     Alert alert = new Alert(Alert.AlertType.INFORMATION);
-    alert.setContentText("Ky eshte nje aplikacion per student-profesore menaxhim,ju lutemi kycuni si profesor apo student!");
+    alert.setContentText("Ky eshte nje sistem interaktiv per menaxhimin e konsultimeve student-profesore,ju lutemi kycuni si profesor apo student!");
     alert.showAndWait();
     }catch (Exception ex){
         ex.printStackTrace();
