@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllerat.EditAppointmentController">
+   <children>
+      <AnchorPane prefHeight="494.0" prefWidth="368.0" style="-fx-background-color: light red;">
+         <children>
+            <VBox prefHeight="494.0" prefWidth="13.0" />
+            <Label layoutX="53.0" layoutY="62.0" text="Reschedule appointment" textFill="#ea2121">
+               <font>
+                  <Font name="System Bold" size="21.0" />
+               </font>
+            </Label>
+            <Label layoutX="40.0" layoutY="144.0" text="Select new date for your appointment" />
+            <DatePicker fx:id="editDatePicker" layoutX="40.0" layoutY="177.0" prefHeight="26.0" prefWidth="287.0" promptText="Date" />
+            <Label layoutX="83.0" layoutY="253.0" text="Select new time for your appointment" />
+            <Button fx:id="btnFinishEditing" layoutX="138.0" layoutY="390.0" mnemonicParsing="false" onAction="#onFinishEditingClick" prefHeight="42.0" prefWidth="90.0" style="-fx-background-color: red;" text="Finish">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <styleClass>
+                  <String fx:value="update-button" />
+                  <String fx:value="update" />
+               </styleClass>
+            </Button>
+            <TextField fx:id="hrField" layoutX="124.0" layoutY="291.0" prefHeight="26.0" prefWidth="118.0" promptText="Hour" />
+            <TextField fx:id="minField" layoutX="125.0" layoutY="325.0" prefHeight="26.0" prefWidth="118.0" promptText="Minutes" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
