@@ -20,7 +20,7 @@ public class Main extends Application {
     		  Locale currentLocale=Locale.getDefault();
     		  Locale locale = new Locale("en_US");
     		  ResourceBundle bundle=ResourceBundle.getBundle("resources.labelText",locale);
-              Parent root = FXMLLoader.load(getClass().getResource("prova.fxml"),bundle);
+              Parent root = FXMLLoader.load(getClass().getResource("Hyrja.fxml"),bundle);
               primaryStage.setTitle("Menaxhimi I Konsultimeve");
               primaryStage.setScene(new Scene(root));
               primaryStage.show(); 
