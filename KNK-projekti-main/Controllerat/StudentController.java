@@ -88,7 +88,7 @@ public class StudentController implements Initializable {
     }
 
     ObservableList<String> profesori  = FXCollections.observableArrayList("Dalina Vranovci", "Valon Raca", "Blend Arifaj","Isak Shabani","Qamil Kabashi");
-    ObservableList<String> lenda  = FXCollections.observableArrayList("Programim ne Internet", "Arkitektura e Kompjutereve", "Komunikimi Njeri-Kompjuter","Baza e te dhenave","Elektronike");
+    ObservableList<String> lenda  = FXCollections.observableArrayList("Programim ne Ueb2", "Arkitektura e Kompjutereve", "Komunikimi Njeri-Kompjuter","Baza e te dhenave","Elektronike");
 
 
     @Override
